@@ -1,0 +1,726 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background-color: #f7f7f7;
+}
+header {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    border-bottom: 1px solid #dae1e8;
+}
+
+.container {
+    width: 80vw;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header__logo a {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-decoration: none;
+}
+.header__logo-img {
+    width: 60px;
+    margin-right: 10px;
+}
+.header__logo-img img{
+    width: 100%;
+}
+.header__title h1 {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color: #0070a7;
+    font-size: 45px;
+}
+.header__text {
+    margin-left: auto;  
+}
+.header__text-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+} 
+.header__text-link:hover {
+    text-decoration: underline;
+    color: #0070a7;
+}
+.header__log_in-log_out {
+    padding-right: 5px;
+    margin-left: auto;
+}
+.header__log_in_btn, .header__log_out_btn {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+.header__log_in_btn {
+    position: relative;
+    padding-left: 25px;
+}
+.header__log_in_btn::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 10px);
+    background: url('../img/icons/icon-login.png') no-repeat center center;
+    background-size: 20px 20px;
+}
+.header__log_in_btn:hover, .header__log_out_btn:hover {
+    color: #0070a7;
+    text-decoration: underline;
+}
+
+.header__log_out_text a {
+    text-decoration: none;
+    padding-right: 5px;
+    color: #666;
+    font-weight: 700;
+    font-size: 26px;
+}
+.header__log_out_text a:hover {
+    text-decoration: underline;
+    color: #0070a7;
+}
+.log_in__back {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    background-color: rgba(9,9,9,.3);
+    text-align: center;
+}
+.log_in__body {
+    position: relative;
+    width: 340px;
+    display: none;
+    max-height: 1200px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 15px 36px;
+    box-sizing: border-box;
+    animation: menuOpenAnimation--QfDDA .2s 0s ease-out 1;
+}
+.log_in__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    padding: 0;
+    box-sizing: content-box;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.log_in__close-btn::after, .log_in__close-btn::before {
+    background-color: #6e6e6e;
+    top: 10px;
+    left: 19px;
+    width: 1.5px;
+    height: 22px;
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 2px;
+    transform-origin: 50%;
+    transform: rotate(-45deg);
+}
+.log_in__close-btn:hover::after, .log_in__close-btn:hover::before {
+    background-color: #006494;
+}
+.log_in__close-btn::before {
+    transform: rotate(45deg);
+}
+.log_in__title {
+    color: #1b1e25;
+    font-size: 32px;
+    font-weight: 300;
+    width: 200px;
+    text-align: left;
+}
+.log_in__subtitle {
+    color: #333;
+    text-align: left;
+    line-height: 1.2;
+    font-size: 12px;
+    padding-bottom: 40px;
+}
+.log_in__form_input input{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    height: 28px;
+    padding: 4px;
+    flex-grow: 1;
+    min-width: 0;
+    border: none;
+    border-bottom: 1px solid #c4c4c4;
+    font-size: 1em;
+    transition: all .2s ease-in-out;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.log_in__form_input input:active, .log_in__form_input input:focus {
+    outline: none;
+    border-bottom: 1px solid #006494;
+}
+.log_in__form_btn button {
+    width: 100%;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    border: 1px solid #0f2b46;
+    background-color: #0f2b46;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5em;
+    border-radius: 3px;
+    transition: .15s;
+    border: none;
+    cursor: pointer;
+    padding: 0.75em 1.5em;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.log_in__form_btn button:hover {
+    border-color: #006494;
+    background-color: #006494;
+}
+.log_in__error {
+    display: none;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: thin solid #a03e3d;
+    color: #a03e3d;
+    font-weight: 600;
+    text-align: center;
+}
+.goBackDikdosham {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-decoration: none;
+    padding: 8px 12px;
+    color: #126f9b;
+    margin-bottom: 20px;
+    transition: .3s;
+}
+.goBackDikdosham:hover {
+    background-color: #f0faff;
+}
+.open-file {
+    margin-bottom: 20px;
+}
+.open-file__btn {
+    max-width: 195px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background-color: #fff;
+    border: 1px solid #dae1e8;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 10%);
+    cursor: pointer;
+}
+.open-file__btn:hover {
+    background-color: #f4f9fd;
+}
+.open-file__btn-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    background: url('../img/icons/icon-file.svg') no-repeat center center;
+    background-size: 32px 32px;
+}
+.open-file__btn-text {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+}
+.open-file__btn-text-open {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #126f9b;
+}
+.open-file__btn-text-extensions {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #6e6e6e;
+}
+.open-file__open {
+    position: absolute;
+    width: 0;
+    height: 0;
+    display: none;
+    outline: 0;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.text-fields {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #fff;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    border: 1px solid #dae1e8;
+}
+.text-field__in {
+    border-right: 1px solid #dae1e8;
+    position: relative;
+}
+.text-field__in, .text-field__out {
+    width: 100%;
+    /* background-color: #fff; */
+}
+.text-field__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    height: 56px;
+    border-bottom: 1px solid #dae1e8;
+}
+.text-fields label {
+    width: 100%;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;  
+}
+.save-as {
+    display: none;
+    position: relative;
+}
+.save-as__btn {
+    min-width: 170px;
+    max-width: 216px;
+    height: 40px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background: #fff;
+    background: url('../img/icons/icon-down.png') no-repeat 92% center;
+    background-size: 24px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    text-align: left;
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 3px;
+    padding: 0 30px 0 15px;
+    cursor: pointer;
+    transition: color 150ms ease-out;
+}
+.save-as__btn:hover {
+    color: #006494;
+    background-image: url('../img/icons/icon-down_active.png');
+}
+.save-as__btn--active {
+    background-image: url('../img/icons/icon-up.png');
+}
+.save-as__btn--active:hover {
+    background-image: url('../img/icons/icon-up_active.png');
+}
+.save-as__list {
+    display: none;
+    position: absolute;
+    z-index: 1111;
+    right: 0;
+    width: 280px;
+    list-style: none;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 4px 20px rgb(0 0 0 / 10%);
+    padding: 10px 0;
+}
+
+.save-as__link {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    padding: 8px 30px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+.save-as__link--txt::before, .save-as__link--docx::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top: calc(50% - 10px);
+    
+    
+}
+.save-as__link--txt::before {
+    background: url('../img/icons/icon-txtfile.svg') no-repeat center center;
+    background-size: 20px 20px;
+}
+.save-as__link--docx::before {
+    background: url('../img/icons/icon-msword.svg') no-repeat center center;
+    background-size: 20px 20px;
+}
+.save-as__link--preloader::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 3px;
+    top: calc(50% - 12px);
+    background: url('../img/file_save_preloader.gif') no-repeat center center;
+    background-size: 24px 24px;
+}
+.save-as__link--disable {
+    pointer-events: none;
+	cursor: default;
+    background-color: #f1f1f1;
+    color: #9f9f9f;
+}
+.save-as__link:hover {
+    background-color: rgba(255,200,87,.3);
+}
+.text-fields textarea, .text-field__out div#text-out {
+    width: 100%;
+    height: calc(100vh - 400px);
+    min-height: 200px;
+    overflow-y: auto;
+    resize: none;
+    padding: 20px;
+    font-family: Calibri, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; */
+    font-size: 20px;
+    text-align: justify;
+    line-height: 1.5;
+}
+.text-field__out div#text-out {
+    position: relative;
+    overflow-y: auto;
+}
+.text-in__preloader {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text-field__out-btns {
+    display: none;
+    justify-content: end;
+    align-items: center;
+    text-align: right;
+    position: relative;
+    bottom: 0;
+    vertical-align: middle;
+}
+.text-field__out-btn_save {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    /* margin-right: 10px; */
+    font-size: 15px;
+    color: #4a5f74;
+    transition: background ease-out 0.5s;
+    border-radius: 3px;
+}
+.text-field__out-btn_save:hover {
+    background-color: #f2f4f7;
+    color: #4382bf;
+}
+.text-field__out-btn_save:active, .text-field__in-form-btn button:active {
+    box-shadow: none;
+}
+.text-field__out-btn_copy {
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    padding: 22px;
+    border-radius: 0.25rem;
+    background: url('../img/icons/icons-copy.png') no-repeat center center;
+    background-size: 24px 24px; 
+    
+}
+.text-field__out-btn_copy:hover {
+    background-color: #f2f4f7;
+}
+.text-field__out-btn_copy:active {
+    padding: 22px;
+    border-radius: 0.25rem;
+    background: url('../img/icons/icons-copy_active.png') no-repeat center center;
+    background-size: 24px 24px;
+    background-color: #f2f4f7;
+}
+.text-fields textarea:focus, .text-field__out div:focus {
+    outline:none;
+}
+.text-field__in textarea {
+    border: none;
+    overflow-x: clip;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+.text-field__in-form-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-field__in-form-btn, .text-field__out-btns {
+    width: 100%;
+    padding: 15px 20px;
+}
+.text-field__in-form-btn button{
+    background: rgb(0 112 167);
+    border: none;
+    cursor: pointer;
+    padding: 10px 35px;
+    font-size: 18px;
+    color: #fff;
+    transition: background ease-out 0.5s;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 59%);
+    border-radius: 5px;
+}
+.text-field__in-form-btn button:hover {
+    background: rgb(0, 121, 158); 
+}
+.text-field__in-form-btn button.disable, .open-file__btn.disable {
+	pointer-events: none;
+	cursor: default;
+    background-color: #666;
+}
+button.text-field__in-btn-reset {
+    display: none;
+    background: #333;
+}
+button.text-field__in-btn-reset:hover {
+    background: #4a4a4a;
+}
+.open-file__btn.disable {
+    background-color: rgb(223, 223, 223);
+    box-shadow: none;
+}
+.red {
+    color: red;
+    font-weight: 700;
+}
+.yellow {
+    color: yellowgreen;
+    font-weight: 700;
+}
+.green {
+    color: green;
+    font-weight: 700;
+}
+.context-menu {
+    display: none;
+    /* padding: 15px 0; */
+    background-color: #fff;
+    /* border: 2px solid rgb(95, 95, 95); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 5px rgb(106 106 106);
+}
+.context-menu__list {
+    list-style: none;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+.context-menu__list li {
+    position: relative;
+}
+.context-menu__list li a{
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 5px 25px;
+    text-align: center;
+    transition: all .2s ease-out;
+}
+.context-menu__list li a:hover, .context-menu__list li .replace-word-active  {
+    background: #0070a7;
+    color: #fff;
+}
+.context-menu__list li:hover .add-word-btn {
+    display: block;   
+}
+
+.add-word-btn {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    left: auto;
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+    border: none;
+    box-shadow: 0 0 5px rgb(106 106 106);
+    transition: all .2s ease-out;
+}
+.add-word-btn:hover {
+    background: #0070a7;
+    color: #fff;
+    border-left: 1px solid #c5ecff;
+}
+.context-menu__footer {
+    border-top: 1px solid #00c3ff;
+}
+.context-menu__button {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    background: #545454;
+    color: #fff;
+    border: none; 
+    padding: 10px 25px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.context-menu__button:nth-child(1) {
+    border-bottom: 1px solid #afafaf;
+}
+.context-menu__button:hover {
+    background-color: #b10000;
+}
+
+@media (max-width: 1600px){
+    /* header {
+        margin-bottom: 30px;
+    } */
+    .container {
+        width: 90vw;
+    }
+    .header__logo-img {
+        width: 60px;
+    }
+    .header__title h1 {
+        font-size: 40px;
+    }
+    .text-fields textarea, .text-field__out div#text-out {
+        height: calc(100vh - 360px);
+    }
+}
+
+@media (max-width: 1024px){
+    .container {
+        width: 90vw;
+    }
+
+}
+
+@media (max-width: 768px){
+    .container {
+        width: 90vw;
+    }
+    .text-fields {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    .text-fields textarea, .text-field__out div#text-out {
+        height: 200px;
+    }
+    .text-field__in {
+        border-right: none;
+        border-bottom: 1px solid #dae1e8;
+    }
+    .text-field__in-form-btn {
+        text-align: right;
+    }
+
+}
+
+@media (max-width: 480px){
+    .header__title h1 {
+        font-size: 32px;
+    }
+    .context-menu__list li a {
+        padding: 5px 15px;
+    }
+    .context-menu__button {
+        padding: 10px 15px;
+    }
+    .text-field__in-form-btn button {
+        padding: 8px 25px;
+        font-size: 16px;
+        border-radius: 3px;
+    }
+    .header__log_out_text {
+        font-size: 22px;
+    }
+    .header__log_in-log_out {
+        text-align: right;
+        padding-right: 0;
+    }
+
+}
+
+@media (max-width: 400px){
+    .header__log_out_text {
+        font-size: 22px;
+        padding-right: 0;
+    }
+    .text-field__header {
+        padding: 0 10px;
+    }
+    .text-fields label {
+        font-size: 15px;
+    }
+    .save-as__btn {
+        min-width: 130px;
+        background-size: 20px 20px;
+        padding: 0 5px 0 5px;
+        background-position-x: 98%;
+        font-size: 13px;
+    }
+
+}
+

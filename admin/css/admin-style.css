@@ -1,0 +1,119 @@
+.header__logo-img {
+    width: 40px;
+}
+
+.header__title h1 {
+    font-size: 22px;
+}
+
+.user-words-tables {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.user-words {
+    margin-right: 30px;
+}
+.user-words, .user-words-pro {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    border-radius: 5px;
+    border: 1px solid #dae1e8;
+    
+}
+.user-words__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    height: 56px;
+    border-bottom: 1px solid #dae1e8;
+}
+.user-words__table {
+    height: calc(100vh - 170px);
+    min-height: 300px;
+    overflow-y: auto;
+}
+.user_words__word {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 5px;
+    border-bottom: 1px solid #dae1e8;
+}
+.user_words__word .word {
+    padding: 5px 15px;
+    max-width: 72%;
+}
+.user_words__word .word:focus {
+    outline: none;
+    border: 1px solid #a1a1a1;
+    border-radius: 3px;
+}
+.user_words__word-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user_words__del-btn {
+    border: none;
+    background: none;
+    border-radius: 0.25rem;
+    width: 32px;
+    height: 32px;
+    background: url(../img/icons/delete-icon.png) no-repeat center center;
+    background-size: 24px 24px;
+    transition: background-color ease-out 0.5s;
+    cursor: pointer;
+}
+.user_words__del-btn:hover {
+    background-color: #f2f4f7;
+}
+.user_words__del-btn:active {
+    background-color: #ff000033;
+}
+.user_words__add-btn, .user_words__update-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 15px;
+    color: #4a5f74;
+    transition: background ease-out 0.5s;
+    border-radius: 3px;
+}
+.user_words__add-btn:hover, .user_words__update-btn:hover {
+    background-color: #f2f4f7;
+    color: #4382bf;
+}
+.user_words__add-btn:active, .user_words__update-btn:active {
+    background-color: #10cf0036;
+}
+
+.word_disabled::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/added_word_preloader.gif') #00000021 no-repeat center center;
+    background-size: 32px 32px;
+}
+
+@media (max-width: 767px){
+
+    .user-words-tables {
+        flex-wrap: wrap;
+    }
+    .user-words, .user-words-pro {
+        margin-bottom: 35px;
+    }
+    .user-words {
+        margin-right: 0;
+    }
+}
